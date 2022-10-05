@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.example.besinlerkitabi'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.besinlerkitabi"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -41,13 +41,9 @@ android {
 
 dependencies {
 
-    def lifeCycleExtensionVersion = '1.1.1'
-    def retrofitVersion = '2.8.1'
     def glideVersion = '4.11.0'
     def rxJavaVersion = '2.2.8'
     def rxAndroidVersion = '2.1.1'
-    def roomVersion = '2.2.3'
-    def navVersion = '2.3.0'
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -58,10 +54,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //room and lifecycle
-    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
-    implementation "androidx.room:room-runtime:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
-    implementation "androidx.room:room-ktx:$roomVersion"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.room:room-runtime:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
 
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
 
@@ -69,16 +66,16 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
 
     //navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
 
     //material Design
     implementation "com.google.android.material:material:1.6.1"
 
     //retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
 
     //rxjava
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
