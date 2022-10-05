@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BesinlerKitabi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="besin_isim">Besin Isim</string>
+    <string name="besin_kalori">Besin Kalori</string>
+    <string name="besin_karbonhidrat">Besin Karbonhidrat</string>
+    <string name="besin_protein">Besin Protein</string>
+    <string name="besin_yag">Besin Yag</string>
+</resources>
