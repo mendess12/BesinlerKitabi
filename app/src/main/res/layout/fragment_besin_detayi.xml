@@ -11,11 +11,15 @@
         android:orientation="vertical"
         tools:context=".view.BesinDetayiFragment">
 
+        <include
+            android:id="@+id/include"
+            layout="@layout/app_bar" />
+
+
         <ImageView
             android:id="@+id/besinImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:minHeight="200dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_launcher_background" />

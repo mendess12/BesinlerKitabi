@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.example.besinlerkitabi.R
 import com.example.besinlerkitabi.viewmodel.BesinDetayiViewModel
 import kotlinx.android.synthetic.main.fragment_besin_detayi.*
@@ -33,6 +34,10 @@ class BesinDetayiFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(BesinDetayiViewModel::class.java)
         viewModel.getRoomData()
         observeLiveData()
+
+        include.setOnClickListener {
+            Navigation.findNavController(it).popBackStack()
+        }
 
     }
 
