@@ -39,6 +39,15 @@ class BesinListesiFragment : Fragment() {
         viewModel.refreshData()
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = recyclerBesinAdapter
+
+        swipeRefreshLayout.setOnRefreshListener {
+            besinErrorMessage.visibility = View.GONE
+            recyclerView.visibility = View.GONE
+            besinProgressBar.visibility = View.VISIBLE
+            viewModel.refreshData()
+            swipeRefreshLayout.isRefreshing = false
+        }
+
         observerLiveData()
 
     }
@@ -57,12 +66,11 @@ class BesinListesiFragment : Fragment() {
 
             hata?.let {
 
-                if (it){
+                if (it) {
                     besinErrorMessage.visibility = View.VISIBLE
                     recyclerView.visibility = View.GONE
                     besinProgressBar.visibility = View.GONE
-                }
-                else{
+                } else {
                     besinErrorMessage.visibility = View.GONE
                     recyclerView.visibility = View.VISIBLE
                     besinProgressBar.visibility = View.GONE
@@ -73,12 +81,11 @@ class BesinListesiFragment : Fragment() {
         viewModel.besinYukleniyor.observe(viewLifecycleOwner, Observer { yukleniyor ->
 
             yukleniyor?.let {
-                if (it){
+                if (it) {
                     besinErrorMessage.visibility = View.GONE
                     recyclerView.visibility = View.GONE
                     besinProgressBar.visibility = View.VISIBLE
-                }
-                else{
+                } else {
                     besinErrorMessage.visibility = View.GONE
                     recyclerView.visibility = View.VISIBLE
                     besinProgressBar.visibility = View.GONE
