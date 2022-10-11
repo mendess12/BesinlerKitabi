@@ -44,7 +44,7 @@ class BesinListesiFragment : Fragment() {
             besinErrorMessage.visibility = View.GONE
             recyclerView.visibility = View.GONE
             besinProgressBar.visibility = View.VISIBLE
-            viewModel.refreshData()
+            viewModel.refreshFromInternet()
             swipeRefreshLayout.isRefreshing = false
         }
 
