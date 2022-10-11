@@ -2,13 +2,13 @@ package com.example.besinlerkitabi.util
 
 import android.content.Context
 import android.widget.ImageView
-import androidx.constraintlayout.widget.Placeholder
+import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.besinlerkitabi.R
 
-fun ImageView.installImage(url : String?, placeholder: CircularProgressDrawable){
+fun ImageView.installImage(url: String?, placeholder: CircularProgressDrawable) {
 
     val options = RequestOptions().placeholder(placeholder).error(R.mipmap.ic_launcher_round)
 
@@ -16,10 +16,15 @@ fun ImageView.installImage(url : String?, placeholder: CircularProgressDrawable)
 
 }
 
-fun makePlaceholder(context : Context) : CircularProgressDrawable{
+fun makePlaceholder(context: Context): CircularProgressDrawable {
     return CircularProgressDrawable(context).apply {
         strokeWidth = 8f
         centerRadius = 40f
         start()
     }
+}
+
+@BindingAdapter("android:gorselIndir")
+fun gorselIndir(view: ImageView, url: String){
+    view.installImage(url, makePlaceholder(view.context))
 }

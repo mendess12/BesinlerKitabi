@@ -3,14 +3,32 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="besin"
+            type="com.example.besinlerkitabi.model.Besin" />
+
+        <variable
+            name="listener"
+            type="com.example.besinlerkitabi.adapter.BesinClickListener" />
+    </data>
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="5dp"
+        android:onClick="@{listener::besinTiklandi}"
         android:background="@drawable/recycler_row_background"
         android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/besinUuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(besin.uuid)}"/>
 
         <ImageView
             android:id="@+id/image"
@@ -18,6 +36,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:gorselIndir="@{besin.gorsel}"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <LinearLayout
@@ -33,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@string/besin_isim"
+                android:text="@{besin.isim}"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -43,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="@string/besin_kalori"
+                android:text="@{besin.kalori}"
                 android:textSize="20sp" />
 
         </LinearLayout>
